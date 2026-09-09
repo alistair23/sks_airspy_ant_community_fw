@@ -134,7 +134,7 @@ static void spim_receive(struct k_work *work)
 			return;
 		}
 		
-		LOG_HEXDUMP_INF(rx_buffer, sizeof(rx_buffer), "SPI rx:");
+		LOG_HEXDUMP_DBG(rx_buffer, sizeof(rx_buffer), "SPI rx:");
 		LOG_INF("P[hPa]: %u; T[C]: %d; V[mV]: %u", sensor_data.pressure_hpa, sensor_data.temperature_c, sensor_data.voltage_mv);
 
 		zbus_chan_pub(&sensor_data_chan, &sensor_data, K_MSEC(250));
